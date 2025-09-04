@@ -1,5 +1,5 @@
 <html>
 <body>
-<h2>Hello World!</h2>
+<h2>Deploying from container to tomcat1</h2>
 </body>
 </html>
