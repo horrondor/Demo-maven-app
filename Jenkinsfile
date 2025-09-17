@@ -65,5 +65,6 @@ pipeline {
                 sh 'docker container rm -f java-app-prod-instance || true'
                 sh 'docker run -d -p 8085:8080 --name java-app-prod-instance ${dockerImage}:${BUILD_NUMBER}'
             }
-    }
+        }
+ }
 }
