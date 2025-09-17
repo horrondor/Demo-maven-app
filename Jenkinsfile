@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        dockerImage = "suryaraj/devops-evening67-new-app"
+        dockerImage = "raju217/maven_app"
     }
     stages {
         stage('Compile') {
