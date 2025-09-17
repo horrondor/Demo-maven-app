@@ -66,5 +66,42 @@ pipeline {
                 sh 'docker run -d -p 8085:8080 --name java-app-prod-instance ${dockerImage}:${BUILD_NUMBER}'
             }
         }
- }
-}
+  }
+
+     post { 
+        always { 
+            mail to: 'horrondor170j@gmail.com',
+            subject: "Job '${JOB_NAME}' (${BUILD_NUMBER}) is running",
+            body: "Please go to ${BUILD_URL} and verify the build"
+        }
+        success {
+            mail bcc: '', body: """Hi Team,
+
+	Build #$BUILD_NUMBER is successful, please go through the url
+
+	$BUILD_URL
+
+	and verify the details.
+
+	Regards,
+	DevOps Team""", cc: '', from: '', replyTo: '', subject: 'BUILD SUCCESS NOTIFICATION', to: 'horrondor170@gmail.com'
+        }
+        failure {
+            mail bcc: '', body: """Hi Team,
+            
+	Build #$BUILD_NUMBER is unsuccessful, please go through the url
+
+	$BUILD_URL
+
+	and verify the details.
+
+	Regards,
+	DevOps Team""", cc: '', from: '', replyTo: '', subject: 'BUILD FAILED NOTIFICATION', to: 'horrondor170@gmail.com'
+        }
+    }
+
+
+
+
+
+}		
