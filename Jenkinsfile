@@ -70,7 +70,7 @@ pipeline {
 
      post { 
         always { 
-            mail to: 'horrondor170j@gmail.com',
+            mail to: 'horrondor170@gmail.com',
             subject: "Job '${JOB_NAME}' (${BUILD_NUMBER}) is running",
             body: "Please go to ${BUILD_URL} and verify the build"
         }
@@ -99,9 +99,5 @@ pipeline {
 	DevOps Team""", cc: '', from: '', replyTo: '', subject: 'BUILD FAILED NOTIFICATION', to: 'horrondor170@gmail.com'
         }
     }
-
-
-
-
 
 }		
